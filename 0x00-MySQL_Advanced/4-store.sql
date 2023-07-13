@@ -1,7 +1,5 @@
-reates a trigger that decreases the quantity of an item after adding a new order
-
-CREATE TRIGGER decrement
-AFTER INSERT
-ON orders
-FOR EACH ROW
-UPDATE items SET quantity = quantity - NEW.number WHERE NAME = NEW.item_name;
+-- creates a trigger that decreases the quantity of an item after adding a new order
+CREATE trigger decrase_quant after insert
+ON orders for each row update items
+SET quantity = quantity - NEW.number
+WHERE NEW.item_name = name; 
